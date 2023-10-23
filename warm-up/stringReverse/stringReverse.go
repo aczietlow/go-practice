@@ -12,12 +12,15 @@ func main() {
 }
 
 func reverseString(inputString string) string {
-	// create a slice of the same length
-	stringSlice := make([]rune, len(inputString))
+	// create a slice of the same length by casting the string as a slice of runes.
+	stringSlice := []rune(inputString)
 
-	for key, value := range inputString {
-		index := len(stringSlice) - (key + 1)
-		stringSlice[index] = value
+	i, j := 0, len(inputString)-1
+
+	for i < j {
+		stringSlice[i], stringSlice[j] = stringSlice[j], stringSlice[i]
+		i++
+		j--
 	}
 
 	return string(stringSlice)

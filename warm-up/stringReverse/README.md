@@ -40,3 +40,24 @@ After you've attempted the problem, I can provide a sample solution if you'd lik
 I'm surprised that I actually remembered that strings in go are really just slices of runes.
 
 Runes - an alias for int32
+
+
+### Feedback
+
+```
+func reverseString(inputString string) string {
+	// create a slice of the same length
+	stringSlice := make([]rune, len(inputString))
+
+	for key, value := range inputString {
+		index := len(stringSlice) - (key + 1)
+		stringSlice[index] = value
+	}
+
+	return string(stringSlice)
+}
+```
+
+Complexity is O(n) but you iterate over the inputString twice. Once to create the stringSlice, and again in the for loop via range.
+
+Consider implementing a solution where you only implement over it once.

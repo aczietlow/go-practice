@@ -1,3 +1,5 @@
+# String Reverse
+
 ## *Problem:* String Manipulation - Word Reverser
 
 *Objective:* Write a Go program that takes a string as input and returns the string with each word reversed, but the order of the words should remain the same.
@@ -32,3 +34,9 @@ You can use the strings package in Go to split and join strings.
 Use a loop to reverse the characters of each word.
 Consider using the bufio package for reading and writing to files.
 After you've attempted the problem, I can provide a sample solution if you'd like!
+
+## TIL
+
+I'm surprised that I actually remembered that strings in go are really just slices of runes.
+
+Runes - an alias for int32

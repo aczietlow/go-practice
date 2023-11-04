@@ -33,3 +33,11 @@ Unmarshal the JSON string into a map of string to empty interface (map[string]in
 Extend the program to also display the names of the top-level fields.
 Implement error handling for invalid JSON strings.
 Once you've given it a try, let me know if you'd like hints, feedback, or a sample solution!
+
+## Resources
+
+[JSON and GO (offical docs)](https://go.dev/blog/json)
+[encoding/json](https://pkg.go.dev/encoding/json)
+[encoding/json marshalling](https://pkg.go.dev/encoding/json#Marshaler)
+[json spec](https://www.json.org/json-en.html)
+[JSON RFC](https://www.rfc-editor.org/rfc/rfc7159.html)

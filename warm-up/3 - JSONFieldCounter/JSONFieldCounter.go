@@ -6,28 +6,29 @@ import (
 )
 
 func main() {
+	// Act as json object, don't need to unmarshal it...
+	jsonResponse := fakeJsonResponse()
 
-	b := `{"name": "John", "age": 30, "city": "New York"}`
+	var out map[string]any
+	// aka: var out map[string]interface{} // I just think the above is cleaner
 
-	// encodes json data.
-	jsonData, err := json.Marshal(b)
+	err := json.Unmarshal([]byte(jsonResponse), &out)
 
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("failed to unmarshal json")
 	}
 
-	output(jsonData)
+	fmt.Printf("%#v\n", out)
+
+	count := len(out)
+
+	fmt.Println("Top level fields - ", count)
 }
 
-func output(jsonData []byte) {
-	// JSON encoded data can be unmarshalls to fill an object.
-	// If b contains valid JSON that fits in [insert defined object 'm'], after the call err will be nil and the data from b will have been stored in the struct m.
-	// If the
-	var out interface{}
-	err := json.Unmarshal(jsonData, &out)
-	if err != nil {
-		fmt.Println(err)
-	}
+func fakeJsonResponse() string {
+	// Just pretend we made an http request to a REST API and handled all the good shit here.
 
-	fmt.Printf("%v", out)
+	//jsonString := `{"name": "John", "age": 30, "city": "New York"}`
+	jsonString := `{"data": {"id": 1, "type": "message"}, "status": "success", "code": 200}`
+	return jsonString
 }

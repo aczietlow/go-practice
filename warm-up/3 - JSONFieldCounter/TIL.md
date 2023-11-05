@@ -18,6 +18,12 @@ b := []byte(`{"Name":"Wednesday","Age":6,"Parents":["Gomez","Morticia"]}`)
 
 I know that the Marshall function `func Marshal(v interface{}) ([]byte, error)` accepts any type so long as it has the implements the Marshaler Interface and by extension the MarshalJSON() method, but why is []byte advantageous in this example?
 
+ ##### Follow up research
+
+> Why did the examples want to encode things into a slice of bytes?
+
+Marshaling converts the JSON into a single string, and removes all extraneous white spaces. []byte is a reasonable way to represent this. It's more or less what a string is anyway, a slice of bytes. `JSON.MarshalIndent` produces a human readable json string.
+
 ```go
 // Marshaler is the interface implemented by types that
 // can marshal themselves into valid JSON.

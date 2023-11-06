@@ -41,3 +41,6 @@ Once you've given it a try, let me know if you'd like hints, feedback, or a samp
 [encoding/json marshalling](https://pkg.go.dev/encoding/json#Marshaler)
 [json spec](https://www.json.org/json-en.html)
 [JSON RFC](https://www.rfc-editor.org/rfc/rfc7159.html)
+
+[chatGPT problem thread](https://chat.openai.com/c/ae852a73-233d-41d6-bc2b-5c32fea1222c)
+

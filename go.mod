@@ -1,3 +1,3 @@
-module aczietlow/go-practice
+module go-practice
 
 go 1.19

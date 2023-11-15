@@ -18,7 +18,6 @@ func main() {
 
 	page := 3
 	for count := 0; count < result.TotalCount; count += page {
-
 		// Don't go out of bounds of the slice.
 		if remaining := result.TotalCount - count; page > remaining {
 			page = remaining
@@ -27,16 +26,13 @@ func main() {
 			fmt.Printf("#%-5d %9.9s %.55s\n", issue.Number, issue.User.Login, issue.Title)
 		}
 		if result.TotalCount-count > page {
-			fmt.Println("continue? n")
+			fmt.Printf("%d of %d \n Select an issue or continue", count+page, result.TotalCount)
 			input, _ := reader.ReadString('\n')
 			if input == "n" {
 				continue
 			}
 		}
-
 	}
 
-	//for _, issue := range result.Items {
-	//	fmt.Printf("#%-5d %9.9s %.55s\n", issue.Number, issue.User.Login, issue.Title)
-	//}
+	// @TODO capture a specific issue to work with?
 }

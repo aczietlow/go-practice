@@ -1,10 +1,13 @@
 package github
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
+	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -67,4 +70,40 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 	}
 	resp.Body.Close()
 	return &result, nil
+}
+
+// Paginate through the results.
+func PaginateSearchIssues(result *IssuesSearchResult) (*Issue, error) {
+	reader := bufio.NewReader(os.Stdin)
+	page := 5
+	for count := 0; count < result.TotalCount; count += page {
+		// Don't go out of bounds of the slice.
+		if remaining := result.TotalCount - count; page > remaining {
+			page = remaining
+		}
+		for _, issue := range result.Items[count : count+page] {
+			fmt.Printf("#%-5d %9.9s %.55s\n", issue.Number, issue.User.Login, issue.Title)
+		}
+		if result.TotalCount-count > page {
+			fmt.Printf("%d of %d \n Select an issue or press n to continue", count+page, result.TotalCount)
+			input, error := reader.ReadString('\n')
+
+			if error != nil {
+				return nil, error
+			}
+
+			if input == "n" {
+				continue
+			}
+			if isNumber(input) {
+
+			}
+		}
+	}
+	return nil, nil
+}
+
+func isNumber(s string) bool {
+	_, err := strconv.Atoi(s)
+	return err == nil
 }

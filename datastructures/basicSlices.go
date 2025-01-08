@@ -8,7 +8,22 @@ func main() {
 
 	// Create a slice of strings with the names of three cities. Change the second city and print the modified slice.
 	changeCity("toledo")
+
+	// Create a slice of integers [10, 20, 30]. Copy it into another slice and modify the copied slice. Print both slices to observe changes.
+	copyChangesSlice()
 }
+
+func copyChangesSlice() {
+	s1 := []int{10, 20, 30}
+	s2 := s1
+	// var s3 []int
+	s3 := make([]int, len(s2))
+	copy(s3, s1)
+
+	s1[0] = 33
+	fmt.Printf("S1:%v\nS2:%v\nS3:%v", s1, s2, s3)
+}
+
 func addNumberToSlice(num int) {
 	numbers := []int{1, 2, 3, 4, 5}
 	fmt.Printf("%v\n", numbers)

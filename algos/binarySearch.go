@@ -4,9 +4,6 @@ import "fmt"
 
 func main() {
 	fmt.Printf("%v\n", binarySearch([]int{2, 4, 5, 7, 19, 21}, 7))
-	fmt.Printf("%v\n", binarySearch([]int{4, 5, 7, 19, 21}, 7))
-	fmt.Printf("%v\n", binarySearch([]int{1, 3, 5, 7, 9}, 7))
-	fmt.Printf("%v\n", binarySearch([]int{1, 3, 5, 7, 9}, 8))
 }
 
 func binarySearch(list []int, item int) int {

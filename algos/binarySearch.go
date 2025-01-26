@@ -19,7 +19,6 @@ func binarySearch(list []int, item int) int {
 		} else {
 			low = mid + 1
 		}
-
 	}
 	return -1
 }

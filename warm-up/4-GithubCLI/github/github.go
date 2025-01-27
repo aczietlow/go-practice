@@ -96,7 +96,6 @@ func PaginateSearchIssues(result *IssuesSearchResult) (*Issue, error) {
 				continue
 			}
 			if isNumber(input) {
-
 			}
 		}
 	}

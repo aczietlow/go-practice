@@ -19,8 +19,7 @@ func selectionSort(list []int) []int {
 }
 
 func findSmallest(list []int) (int, int) {
-	smallest := list[0]
-	smallestIndex := 0
+	var smallest, smallestIndex int = list[0], 0
 	for i, number := range list {
 		if number < smallest {
 			smallest = number

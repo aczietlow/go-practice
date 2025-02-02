@@ -2,22 +2,17 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 )
 
 func main() {
-	fmt.Println(quicksort([]int{5, 1, 2, 18, 21, 4}))
+	fmt.Println(quicksort([]int{5, 1, 2, 18, 21, 4, 7, 5, 8, 3}))
 }
 
 func quicksort(list []int) []int {
 	if len(list) < 2 {
 		return list
 	} else {
-		// Select a random Pivot to get better average time complexity
-		r := rand.New(rand.NewSource(time.Now().UnixNano()))
-		randomIndex := r.Intn(len(list))
-		pivot := list[randomIndex]
+		pivot := list[len(list)/2]
 		left, right := []int{}, []int{}
 		for _, value := range list {
 			if value < pivot {

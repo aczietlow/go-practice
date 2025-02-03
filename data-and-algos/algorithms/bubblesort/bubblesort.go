@@ -11,9 +11,7 @@ func bSort(list []int) []int {
 		index := start
 		for end := len(list) - 1; end > index; end-- {
 			if list[end] < list[end-1] {
-				temp := list[end-1]
-				list[end-1] = list[end]
-				list[end] = temp
+				list[end], list[end-1] = list[end-1], list[end]
 			}
 		}
 	}

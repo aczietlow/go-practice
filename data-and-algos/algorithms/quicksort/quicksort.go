@@ -5,19 +5,18 @@ import (
 )
 
 func main() {
-	fmt.Println(quickSortStart([]int{5, 1, 2, 18, 21, 4, 7, 7, 7, 5, 8, 3}))
-}
+	list := []int{5, 1, 2, 18, 21, 4, 7, 7, 7, 8, 3, 5}
+	list2 := list
+	quickSort(list, 0, len(list)-1)
+	fmt.Println(list)
 
-func quickSortStart(list []int) []int {
-	return quickSort(list, 0, len(list)-1)
+	fmt.Println(quickSortFunctional(list2))
 }
 
 func quickSort(list []int, low, high int) []int {
-	for low < high {
-		pivot := 0
+	if low < high {
+		var pivot int
 		list, pivot := partition(list, low, high)
-		fmt.Println(pivot)
-		fmt.Println(list)
 		list = quickSort(list, low, pivot-1)
 		list = quickSort(list, pivot+1, high)
 	}
@@ -35,5 +34,24 @@ func partition(list []int, low, high int) ([]int, int) {
 	}
 	list[i], list[high] = list[high], list[i]
 	return list, i
+}
 
+// The functional approach uses sub-arrays and as a result uses more memory
+func quickSortFunctional(list []int) []int {
+	if len(list) < 2 {
+		return list
+	} else {
+		pivot := list[len(list)/2]
+		left, right, middle := []int{}, []int{}, []int{}
+		for _, value := range list {
+			if value < pivot {
+				left = append(left, value)
+			} else if value > pivot {
+				right = append(right, value)
+			} else {
+				middle = append(middle, value)
+			}
+		}
+		return append(append(quickSortFunctional(left), middle...), quickSortFunctional(right)...)
+	}
 }

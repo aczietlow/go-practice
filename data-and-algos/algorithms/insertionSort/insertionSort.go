@@ -12,6 +12,5 @@ func insertionSort(list []int) []int {
 			list[j], list[j-1] = list[j-1], list[j]
 		}
 	}
-
 	return list
 }

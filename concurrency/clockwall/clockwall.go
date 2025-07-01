@@ -5,10 +5,22 @@ import (
 	"log"
 	"net"
 	"os"
+	"strconv"
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "localhost:8001")
+	clocks := []int{8000, 8001}
+
+	for _, port := range clocks {
+		go newConn("localhost:" + strconv.Itoa(port))
+	}
+	for {
+		// literally wait forever
+	}
+
+}
+func newConn(address string) {
+	conn, err := net.Dial("tcp", address)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -34,6 +34,7 @@ func main() {
 		conn, err := l.Accept()
 		if err != nil {
 			log.Print(err)
+			continue
 		}
 		go handleConn(conn)
 	}

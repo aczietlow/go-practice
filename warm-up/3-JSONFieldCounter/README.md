@@ -6,7 +6,7 @@ Write a Go program that reads a JSON string and counts the number of top-level f
 
 *Description:*
 
-You are given a JSON string that represents an object. Your task is to determine how many top-level fields exist in this JSON object.
+Given a JSON string that represents an object, determine how many top-level fields exist in this JSON object.
 
 *Example:*
 

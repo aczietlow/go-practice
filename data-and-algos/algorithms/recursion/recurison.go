@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	list := []int{1, 3, 5, 2, 12, 8}
-	fmt.Println(sum(list))
+	fmt.Println(sum([]int{1, 3, 5, 2, 12, 8}))
+	fmt.Printf("factorial of %d is %d", 5, fact(5))
 }
 
 func sum(list []int) int {
@@ -15,4 +15,12 @@ func sum(list []int) int {
 		total += list[0] + sum(list[1:])
 	}
 	return total
+}
+
+func fact(x int) int {
+	if x == 1 {
+		return x
+	} else {
+		return x * fact(x-1)
+	}
 }

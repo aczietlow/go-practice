@@ -5,12 +5,12 @@ import (
 )
 
 func main() {
-	list := []int{5, 1, 2, 18, 21, 4, 7, 7, 7, 8, 3, 5}
-	list2 := list
+	list := []int{3, 7, 8, 5, 2, 1, 9, 5, 4}
+	// list2 := list
 	quickSort(list, 0, len(list)-1)
 	fmt.Println(list)
 
-	fmt.Println(quickSortFunctional(list2))
+	// fmt.Println(quickSortFunctional(list2))
 }
 
 func quickSort(list []int, low, high int) []int {
@@ -33,6 +33,7 @@ func partition(list []int, low, high int) ([]int, int) {
 		}
 	}
 	list[i], list[high] = list[high], list[i]
+	fmt.Printf("partitioned list: %v\npivot index: %v\n", list, i)
 	return list, i
 }
 
